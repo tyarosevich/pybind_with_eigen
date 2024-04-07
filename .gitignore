@@ -1,0 +1,5 @@
+env/
+.idea/
+.github/
+pybind_example_repo/build/
+pybind_example_repo/python_example.egg-info/

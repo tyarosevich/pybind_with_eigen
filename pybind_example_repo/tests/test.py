@@ -6,7 +6,8 @@ assert m.__version__ == '0.0.6'
 # Test functions from other source files.
 assert m.add(1, 2) == 3
 assert m.sub(1, 2) == -1
-print(m.add(1, 2))
+assert(m.sub() == 0) # Testing default values.
+print(m.add(i=1, j=2))
 
 # Test class from other source file.
 p = m.Pet("Molly")
@@ -37,3 +38,7 @@ c = a.copy_matrix()
 print(mat_from_eigen)
 print(type(mat_from_eigen))
 print(mat_from_eigen.flags.owndata)
+
+b = np.random.rand(10, 10)
+a = m.VecWrapper(b) # This should work without forcing b to be col-major, becaues of the Eigen RowMajor object.
+print(a.get_matrix())
